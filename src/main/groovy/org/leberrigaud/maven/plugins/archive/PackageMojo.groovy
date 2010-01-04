@@ -24,7 +24,7 @@ abstract class PackageMojo extends GroovyMojo
     {
         if (algorithm() == 'zip')
         {
-            ant.zip(basedir: archiveDirectory, destfile: project.build.finalName)
+            ant.zip(basedir: archiveDirectory, destfile: "${project.build.directory}/${project.build.finalName}.${algorithm()}")
         }
     }
 
