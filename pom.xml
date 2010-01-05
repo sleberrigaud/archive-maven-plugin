@@ -60,8 +60,13 @@
     <distributionManagement>
         <repository>
             <id>leberrigaud-repository</id>
-            <url>svn:https://leberrigaud-repository.googlecode.com/svn/</url>
+            <url>svn:https://leberrigaud-repository.googlecode.com/svn/releases</url>
         </repository>
+        <snapshotRepository>
+            <id>leberrigaud-repository-snapshots</id>
+            <url>svn:https://leberrigaud-repository.googlecode.com/svn/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
     </distributionManagement>
 
     <properties>
