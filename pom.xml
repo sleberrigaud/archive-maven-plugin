@@ -3,7 +3,7 @@
 
     <groupId>org.leberrigaud.maven.plugins</groupId>
     <artifactId>archive-maven-plugin</artifactId>
-    <version>0.3</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Archive Maven Plugin</name>
