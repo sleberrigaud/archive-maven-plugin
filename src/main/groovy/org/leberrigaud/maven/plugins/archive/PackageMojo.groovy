@@ -1,5 +1,6 @@
 package org.leberrigaud.maven.plugins.archive
 
+import org.apache.maven.plugin.MojoExecutionException
 import org.apache.maven.project.MavenProject
 import org.codehaus.gmaven.mojo.GroovyMojo
 
@@ -8,7 +9,7 @@ abstract class PackageMojo extends GroovyMojo
     /**
      * The Maven Project
      * @parameter expression = "${project}"
-     * @required true
+     * @required
      * @readonly
      */
     private MavenProject project;
@@ -22,10 +23,17 @@ abstract class PackageMojo extends GroovyMojo
 
     void execute()
     {
-        if (algorithm() == 'zip')
+        final def type = algorithm()
+        final def destFile = "${project.build.directory}/${project.build.finalName}.${type}"
+        if (type == 'zip')
         {
-            ant.zip(basedir: archiveDirectory, destfile: "${project.build.directory}/${project.build.finalName}.${algorithm()}")
+            ant.zip(basedir: archiveDirectory, destfile: destFile)
         }
+        else
+        {
+            throw new MojoExecutionException("Unrecognised type $type")
+        }
+        project.artifact.file = new File(destFile)
     }
 
     abstract String algorithm()
