@@ -9,6 +9,12 @@
 
     <name>Archive Maven Plugin</name>
 
+    <scm>
+        <connection>scm:git:git://github.com/sleberrigaud/archive-maven-plugin.git</connection>
+        <developerConnection>scm:git:git://github.com/sleberrigaud/archive-maven-plugin.git</developerConnection>
+        <url>http://github.com/sleberrigaud/archive-maven-plugin/</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.codehaus.gmaven</groupId>
