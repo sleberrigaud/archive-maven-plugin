@@ -9,6 +9,13 @@
 
     <name>Archive Maven Plugin</name>
 
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
     <scm>
         <connection>scm:git:git://github.com/sleberrigaud/archive-maven-plugin.git</connection>
         <developerConnection>scm:git:git://github.com/sleberrigaud/archive-maven-plugin.git</developerConnection>
@@ -24,6 +31,14 @@
     </dependencies>
 
     <build>
+        <!-- to deploy to an svn repo -->
+        <extensions>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.9</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.gmaven</groupId>
@@ -42,6 +57,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>leberrigaud-repository</id>
+            <url>svn:https://leberrigaud-repository.googlecode.com/svn/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <gmaven.version>1.2</gmaven.version>
